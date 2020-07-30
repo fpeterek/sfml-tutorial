@@ -8,11 +8,11 @@
 #include "custom_rect.hpp"
 
 sf::VideoMode fullscreen() {
-    return sf::VideoMode::getDesktopMode();
+    return sf::VideoMode(1920, 1080);
 }
 
 sf::RenderWindow createWindow() {
-   return sf::RenderWindow(fullscreen(), "Example 1", sf::Style::Default);
+   return sf::RenderWindow(fullscreen(), "Example 1", sf::Style::Fullscreen);
 }
 
 float sign(const float arg) {
