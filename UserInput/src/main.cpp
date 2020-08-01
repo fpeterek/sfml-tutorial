@@ -96,7 +96,7 @@ int main(int argc, const char * argv[]) {
         }
 
         win.clear(sf::Color::White);
-        for (const auto c : circles) {
+        for (const auto & c : circles) {
             win.draw(c);
         }
         win.display();
