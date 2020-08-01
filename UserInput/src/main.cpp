@@ -62,6 +62,7 @@ void resizeCircle(sf::CircleShape & circle, sf::Window & win) {
     circle.setRadius(radius);
     circle.setOrigin(radius, radius);
     circle.setPosition(center);
+    circle.setPointCount(radius/2);
 
 }
 
