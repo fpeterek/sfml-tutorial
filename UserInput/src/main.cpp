@@ -71,17 +71,18 @@ void resizeCircle(sf::CircleShape & circle, sf::Window & win) {
     circle.setRadius(radius);
     circle.setOrigin(radius, radius);
     circle.setPosition(center);
-    circle.setPointCount(radius/2);
+    circle.setPointCount(std::max(10.f, radius / 2.f));
 
 }
 
 void createLine(const sf::Vector2f begin, const sf::Vector2f end, std::vector<Line> & lines) {
 
     const auto len = calcDistance(begin, end);
-    const auto sx = begin.x - end.x;
+    const auto sx = end.x - begin.x;
 
     const auto cos = sx / len;
-    const auto angle = std::acos(cos) * (180/M_PI);
+    const auto tmpAngle = std::acos(cos) * (180/M_PI);
+    const auto angle = (end.y < begin.y) ? 360 - tmpAngle : tmpAngle;
 
     constexpr float lineWidth = 5;
     constexpr float origX = 0;
